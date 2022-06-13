@@ -16,7 +16,7 @@ class Spectrum_Visualizer:
         self.kbd = kbd
 
 
-        self.cm = cm.hsv
+        self.cm = cm.inferno
 
         self.toggle_history_mode()
 
@@ -94,5 +94,5 @@ class Spectrum_Visualizer:
 
         self.kbd.ClearDrawBuffer()
         for i, fast_bar in enumerate(self.fast_bars):
-            self.kbd.DrawBar(i, fast_bar, self.fast_bar_colors[i])
+            self.kbd.DrawBar(len(self.fast_bars) - i - 1, fast_bar, self.fast_bar_colors[i])
 
