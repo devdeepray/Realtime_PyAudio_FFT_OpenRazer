@@ -1,17 +1,20 @@
 # Realtime_PyAudio_FFT
-<p align="center">
-  <img src="./assets/teaser.gif">
-</p>
 
 ### A simple package to do realtime audio analysis in native Python, using PyAudio and Numpy to extract and visualize FFT features from a live audio stream.
 
-[**Demo Video**](https://youtu.be/FnP2bkzU4oo)
+This version has been adapted from the original repo in order to show the visualization on a razer keyboard.
+
+Additional dependency required: OpenRazer (https://openrazer.github.io/)
+
+[**Original App Demo Video**](https://youtu.be/FnP2bkzU4oo)
+
+[**Razer Keyboard Demo Video**](https://www.reddit.com/r/linux_gaming/comments/vafgoq/openrazer_music_visualizer/)
 
 **The basic pipeline:**
 * Starts a stream_reader that pulls live audio data from any source using PyAudio (soundcard, microphone, ...)
 * Reads data from this stream many times per second (eg 1000 updates per second) and stores that data in a fifo buffer
 * When triggered by `.get_audio_features()`, the stream_analyzer, applies a Fast-Fourier-Transform to the most recent audio window in the buffer
-* When `visualize` is enabled, the visualizer displays these FFT features in realtime using a PyGame GUI (I made two display modes: 2D and 3D)
+* When `visualize` is enabled, the visualizer displays these FFT features in realtime on an OpenRazer keyboard.)
 
 **Requirements:**
 
@@ -27,10 +30,9 @@ If something doesn't work, please first try to fix it yourself and post an issue
 * For Mac OSX (tested on Catalina 10.15.4), please make sure you run with Python downloaded from [Python.org](https://www.python.org/downloads/release/python-377/) (`pygame` doesn't work well with the default/Homebrew Python)
 
 Tested with:
-* Python 3.6.3
-* [pygame](https://www.pygame.org/wiki/GettingStarted)  --> Version: 1.9.6
+* Python 3.8.10
 * [pyaudio](http://people.csail.mit.edu/hubert/pyaudio/) --> Version: 0.2.11
-* [scipy](https://www.scipy.org/install.html)   --> Version: 1.4.1
+* [scipy](https://www.scipy.org/install.html)   --> Version: 1.22.3
 
 
 Alternatively to pyaudio, you can use [sounddevice](https://python-sounddevice.readthedocs.io/en/0.3.15/installation.html) which might be more compatible with Windows/Mac
